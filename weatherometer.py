@@ -29,18 +29,17 @@ while True:
 	response = requests.get(url,headers=headers)
 	if response.status_code != 200:
 		print("Error: ", r.status_code)
-	print(url)
+	# print(url)
 	data = response.json()
 	# print(data)
 	temperature = str(int(round(data['currently']['temperature'])))
-	daily = data['daily']['summary']
+	minutely = data['minutely']['summary']
 	hourly = data['hourly']['summary']
 	# print(temperature)
-	# print(daily)
 	# print(hourly)
-	message = "It's currently " + temperature + u'\N{DEGREE SIGN}' + "C. " + hourly + " " + daily
+	message = "It's " + temperature + u'\N{DEGREE SIGN}' + "C in #Vancouver. " + "It'll be " + minutely.lower() + " " + hourly
 	if len(message) > 140:
-		message = "It's currently " + temperature + u'\N{DEGREE SIGN}' + "C. " + daily
-	# print(message)
-	api.update_status(status=message)
+		message = "It's " + temperature + u'\N{DEGREE SIGN}' + "C in #Vancouver. " + "It'll be " + minutely.lower()
+		# print(message)
+		api.update_status(status=message)
 	time.sleep(14400)
