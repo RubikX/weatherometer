@@ -41,5 +41,5 @@ while True:
 	if len(message) > 140:
 		message = "It's " + temperature + u'\N{DEGREE SIGN}' + "C in #Vancouver. " + "It'll be " + minutely.lower()
 		# print(message)
-		api.update_status(status=message)
+	api.update_status(status=message)
 	time.sleep(14400)
