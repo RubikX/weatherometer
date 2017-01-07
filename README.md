@@ -1,2 +1,2 @@
-# weatherometer
+# Weatherometer
 Python Twitter Weather Bot
